@@ -1,12 +1,10 @@
-# Desafio backend Mottu.
-Seja muito bem-vindo ao desafio backend da Mottu, obrigado pelo interesse em fazer parte do nosso time e ajudar a melhorar a vida de milhares de pessoas.
+# Desafio backend DotNets.
+Criação de uma aplicação BackEnd para o controle de aluguel de motocicletas;
 
-## Instruções
-- O desafio é válido para diversos níveis, portanto não se preocupe se não conseguir resolver por completo.
-- A aplicação só será avaliada se estiver rodando, se necessário crie um passo a passo para isso.
-- Faça um clone do repositório em seu git pessoal para iniciar o desenvolvimento e não cite nada relacionado a Mottu.
-- Após teste realizado, favor encaminha-lo via Link abaixo:
-Link: [Formulário - Mottu - Desafio Backend](https://forms.office.com/r/25yMPCax5S)
+# Especificaões do Projeto
+ - .Net 8
+ - Banco de Dados PostgresSQL
+ - ORM EntityFramework Core
 
 ## Requisitos não funcionais 
 - A aplicação deverá ser construida com .Net utilizando C#.
@@ -16,12 +14,6 @@ Link: [Formulário - Mottu - Desafio Backend](https://forms.office.com/r/25yMPCa
 
 ## Aplicação a ser desenvolvida
 Seu objetivo é criar uma aplicação para gerenciar aluguel de motos e entregadores. Quando um entregador estiver registrado e com uma locação ativa poderá também efetuar entregas de pedidos disponíveis na plataforma.
-
-Iremos executar um teste de integração para validar os cenários de uso. Por isso, sua aplicação deve seguir exatamente as especificações de API`s Rest do nosso Swager: request, response e status code.
-Garanta que os atributos dos JSON`s e estão de acordo com o Swagger abaixo.
-
-Swagger de referência:
-https://app.swaggerhub.com/apis-docs/Mottu/mottu_desafio_backend/1.0.0
 
 ### Casos de uso
 - Eu como usuário admin quero cadastrar uma nova moto.
@@ -56,8 +48,7 @@ https://app.swaggerhub.com/apis-docs/Mottu/mottu_desafio_backend/1.0.0
     - Quando a data informada for inferior a data prevista do término, será cobrado o valor das diárias e uma multa adicional
         - Para plano de 7 dias o valor da multa é de 20% sobre o valor das diárias não efetivadas.
         - Para plano de 15 dias o valor da multa é de 40% sobre o valor das diárias não efetivadas.
-    - Quando a data informada for superior a data prevista do término, será cobrado um valor adicional de R$50,00 por diária adicional.
-    
+    - Quando a data informada for superior a data prevista do término, será cobrado um valor adicional de R$50,00 por diária adicional. 
 
 ## Diferenciais 🚀
 - Testes unitários

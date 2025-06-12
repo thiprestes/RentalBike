@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalBike.Api", "src\RentalBike.Api\RentalBike.Api.csproj", "{EDB96DE8-EF43-4EE9-8732-6844838BA7EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMotorcycle.Api", "src\RentalMotorcycle.Api\RentalMotorcycle.Api.csproj", "{EDB96DE8-EF43-4EE9-8732-6844838BA7EF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{65981DC5-524B-4220-8595-A31CA769B2B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelntalBike.Bussines", "src\RelntalBike.Bussines\RelntalBike.Bussines.csproj", "{94B8D851-D8E7-4A09-BB04-259DEB720AA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMotorcycle.Bussines", "src\RentalMotorcycle.Bussines\RentalMotorcycle.Bussines.csproj", "{94B8D851-D8E7-4A09-BB04-259DEB720AA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalBike.Data", "src\RentalBike.Data\RentalBike.Data.csproj", "{E43ADA80-DE45-4A41-B0FB-67895850D588}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalMotorcycle.Data", "src\RentalMotorcycle.Data\RentalMotorcycle.Data.csproj", "{E43ADA80-DE45-4A41-B0FB-67895850D588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

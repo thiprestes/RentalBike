@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using RentalMotorcycle.Bussines.Entities.Motorcycle;
+using RentalMotorcycle.Business.Entities.Motorcycles;
 using RentalMotorcycle.Data.Configuration;
 
 namespace RentalMotorcycle.Data

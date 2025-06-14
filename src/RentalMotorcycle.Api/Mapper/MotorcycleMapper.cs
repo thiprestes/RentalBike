@@ -1,7 +1,6 @@
 ﻿using Riok.Mapperly.Abstractions;
 using RentalMotorcycle.Api.ViewModels.Motorcycle;
-using RentalMotorcycle.business.Entities.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle.DTO;
+using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 
 namespace RentalMotorcycle.Api.Mapper;
 

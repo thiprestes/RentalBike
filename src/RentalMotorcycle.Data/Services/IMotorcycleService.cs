@@ -1,7 +1,5 @@
-﻿using RentalMotorcycle.Business.Entities.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle.DTO;
-
-namespace RentalMotorcycle.Data.Services.Motorcycle;
+﻿using RentalMotorcycle.Data.Services.Motorcycles.DTO;
+namespace RentalMotorcycle.Data.Services;
 
 public interface IMotorcycleService
 {

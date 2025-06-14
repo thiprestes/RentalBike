@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RentalMotorcycle.Bussines\RentalMotorcycle.Bussines.csproj" />
+      <ProjectReference Include="..\RentalMotorcycle.Business\RentalMotorcycle.Business.csproj" />
     </ItemGroup>
 
 </Project>

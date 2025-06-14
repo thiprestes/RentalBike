@@ -1,7 +1,7 @@
-﻿using RentalMotorcycle.business.Entities.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle.DTO;
+﻿using RentalMotorcycle.Business.Entities.Motorcycles;
+using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 
-namespace RentalMotorcycle.Data.Services.Motorcycle.Mapper;
+namespace RentalMotorcycle.Data.Services.Motorcycles.Mapper;
 
 public interface IMotorcycleMapper
 {

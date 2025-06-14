@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using RentalMotorcycle.business.Entities.Motorcycle;
+using RentalMotorcycle.Business.Entities.Motorcycles;
 
 namespace RentalMotorcycle.Data.Mapping;
 

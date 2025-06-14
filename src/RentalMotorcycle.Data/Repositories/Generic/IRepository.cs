@@ -1,6 +1,4 @@
-﻿using RentalMotorcycle.business.Entities.Motorcycle;
-
-namespace RentalMotorcycle.Data.Repositories.Generic;
+﻿namespace RentalMotorcycle.Data.Repositories.Generic;
 
 public interface IRepository<T> where T : class
 {

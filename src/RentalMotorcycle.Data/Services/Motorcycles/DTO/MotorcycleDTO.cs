@@ -1,4 +1,4 @@
-﻿namespace RentalMotorcycle.Data.Services.Motorcycle.DTO;
+﻿namespace RentalMotorcycle.Data.Services.Motorcycles.DTO;
 
 public class MotorcycleDTO
 {

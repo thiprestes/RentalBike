@@ -1,9 +1,8 @@
-﻿using RentalMotorcycle.business.Entities.Motorcycle;
-using RentalMotorcycle.Data.Repositories.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle.DTO;
-using RentalMotorcycle.Data.Services.Motorcycle.Mapper;
+﻿using RentalMotorcycle.Data.Repositories.Motorcycles;
+using RentalMotorcycle.Data.Services.Motorcycles.DTO;
+using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
 
-namespace RentalMotorcycle.Data.Services.Motorcycle;
+namespace RentalMotorcycle.Data.Services;
 
 public class MotorcycleService(IMotorcycleRepository motorcycleRepository, IMotorcycleMapper motorcycleMapper) : IMotorcycleService
 {

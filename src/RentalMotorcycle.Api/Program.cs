@@ -1,4 +1,4 @@
-using RentalMotorcycle.Api;
+namespace RentalMotorcycle.Api;
 
 public class Program
 {

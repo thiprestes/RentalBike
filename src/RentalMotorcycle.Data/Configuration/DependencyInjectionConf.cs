@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using RentalMotorcycle.Data.Repositories.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle.Mapper;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using RentalMotorcycle.Data.Repositories.Motorcycles;
+using RentalMotorcycle.Data.Services;
+using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
 
 namespace RentalMotorcycle.Data.Configuration;
 

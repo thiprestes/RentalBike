@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using RentalMotorcycle.Api.Mapper;
 using RentalMotorcycle.Api.ViewModels.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycle;
+using RentalMotorcycle.Data.Services.Motorcycles;
 using RentalMotorcycle.Api.ViewModels;
+using RentalMotorcycle.Data.Services;
 
 namespace RentalMotorcycle.Api.Controllers
 {

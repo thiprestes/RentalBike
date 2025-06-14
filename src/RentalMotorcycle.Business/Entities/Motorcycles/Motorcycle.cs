@@ -1,4 +1,4 @@
-﻿namespace RentalMotorcycle.business.Entities.Motorcycle;
+﻿namespace RentalMotorcycle.Business.Entities.Motorcycles;
 
 public class Motorcycle
 {

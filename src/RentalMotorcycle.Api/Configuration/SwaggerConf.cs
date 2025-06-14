@@ -1,5 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
-using RentalMotorcycle.Api.ViewModels.Motorcycle;
+using RentalMotorcycle.Api.ViewModels.Motorcycle.Example;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace RentalMotorcycle.Api.Configuration;

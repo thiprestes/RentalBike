@@ -1,7 +1,7 @@
-﻿using RentalMotorcycle.Api.ViewModels.Motorcycle;
+﻿using RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
 using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 
-namespace RentalMotorcycle.Api.Mapper;
+namespace RentalMotorcycle.Api.Mapper.Motorcycle;
 
 public interface IMotorcycleMapper
 {

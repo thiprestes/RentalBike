@@ -34,4 +34,10 @@
       <ProjectReference Include="..\RentalMotorcycle.Data\RentalMotorcycle.Data.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ViewModels\DeliveryMen\Example\" />
+      <Folder Include="ViewModels\DeliveryMen\Response\" />
+      <Folder Include="ViewModels\Rental\Example\" />
+    </ItemGroup>
+
 </Project>

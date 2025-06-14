@@ -1,6 +1,7 @@
-﻿using Swashbuckle.AspNetCore.Filters;
+﻿using RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
+using Swashbuckle.AspNetCore.Filters;
 
-namespace RentalMotorcycle.Api.ViewModels.Motorcycle;
+namespace RentalMotorcycle.Api.ViewModels.Motorcycle.Example;
 
 public class MotorcycleViewModelExample : IExamplesProvider<MotorcycleViewModel>
 {

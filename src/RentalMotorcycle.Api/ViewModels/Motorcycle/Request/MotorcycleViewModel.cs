@@ -1,4 +1,4 @@
-﻿namespace RentalMotorcycle.Api.ViewModels.Motorcycle;
+﻿namespace RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
 
 public record MotorcycleViewModel(
     string identificador,

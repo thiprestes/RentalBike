@@ -1,9 +1,7 @@
-﻿using System.ComponentModel;
-using Microsoft.AspNetCore.Mvc;
-using RentalMotorcycle.Api.Mapper;
-using RentalMotorcycle.Api.ViewModels.Motorcycle;
-using RentalMotorcycle.Data.Services.Motorcycles;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentalMotorcycle.Api.Mapper.Motorcycle;
 using RentalMotorcycle.Api.ViewModels;
+using RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
 using RentalMotorcycle.Data.Services;
 
 namespace RentalMotorcycle.Api.Controllers
@@ -14,7 +12,7 @@ namespace RentalMotorcycle.Api.Controllers
         [HttpGet("")]
         [EndpointSummary("Consultar motos existentes")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<MotorcycleViewModel>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponseError))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
         public async Task<List<MotorcycleViewModel>> Get()
         {
             var ret = await motorcycleService.ListAsync();
@@ -24,7 +22,7 @@ namespace RentalMotorcycle.Api.Controllers
         [HttpGet("{id}")]
         [EndpointSummary("Consultar motos existentes")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponseError))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
         public async Task<MotorcycleViewModel> GetId(string id)
         {
             return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));

@@ -19,7 +19,7 @@ public class RentMapping : IEntityTypeConfiguration<Rent>
       builder.Property(i => i.Entregador_id)
          .IsRequired()
          .HasColumnType("varchar")
-         .HasColumnName("entragor_id");
+         .HasColumnName("entregador_id");
       
       builder.Property(i => i.Moto_id)
          .IsRequired()

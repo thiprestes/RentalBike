@@ -8,6 +8,7 @@ namespace RentalMotorcycle.Api.Controllers
 
 {
     [Route("entregadores")]
+    [Tags("Entregadores")]
     public class DeliveryManControllers(IDeliveryManMapper deliveryManMapper) : Controller
     {
         [HttpGet("{id}")]

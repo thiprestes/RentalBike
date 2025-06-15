@@ -1,10 +1,10 @@
 ﻿namespace RentalMotorcycle.Api.ViewModels.DeliveryMen.Request;
 
 public record DeliveryManViewModel(
-    string identificador,
-    string nome,
-    string cnpj,
-    DateTime data_nascimento,
-    string numero_cnh,
-    string tipo_cnh,
-    string imagem_cnh);
+    string Identificador,
+    string Nome,
+    string Cnpj,
+    DateTime Data_nascimento,
+    string Cnh,
+    string Tipo_cnh,
+    string Imagem_cnh);

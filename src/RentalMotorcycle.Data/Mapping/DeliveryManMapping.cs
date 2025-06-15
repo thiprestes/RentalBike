@@ -12,7 +12,7 @@ public class DeliveryManMapping : IEntityTypeConfiguration<DeliveryMan>
         
         builder.HasKey(i => i.Id);
         builder.Property(i => i.Id)
-            .IsRequired()
+            .IsRequired(true)
             .HasColumnType("uuid")
             .HasColumnName("id");
         
@@ -36,7 +36,7 @@ public class DeliveryManMapping : IEntityTypeConfiguration<DeliveryMan>
             .HasColumnType("date")
             .HasColumnName("data_nascimento");
         
-        builder.Property(i => i.Imagem_cnh)
+        builder.Property(i => i.Cnh)
             .IsRequired()
             .HasColumnType("varchar")
             .HasColumnName("cnh");

@@ -2,12 +2,12 @@
 
 public class RentResponse : BaseResponse
 {
-    public string identificador { get; set; } 
-    public int valor_diaria { get; set; }
-    public string entregador_id { get; set; }
-    public string moto_id { get; set; }
-    public DateTime data_inicio { get; set; }
-    public DateTime data_termino { get; set; }
+    public string Identificador { get; set; } 
+    public int Valor_diaria { get; set; }
+    public string Entregador_id { get; set; }
+    public string Moto_id { get; set; }
+    public DateTime Data_inicio { get; set; }
+    public DateTime Data_termino { get; set; }
     public DateTime Data_precisa_termino { get; set; }
     public DateTime Data_devolucao { get; set; }
 }

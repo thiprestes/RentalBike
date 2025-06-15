@@ -6,6 +6,7 @@ using RentalMotorcycle.Api.ViewModels.Rental.Request;
 namespace RentalMotorcycle.Api.Controllers
 {
     [Route("locacao")]
+    [Tags("Locação")]
     public class RentControllers(IRentMapper rentMapper) : Controller
     {
         [HttpGet("{id}")]

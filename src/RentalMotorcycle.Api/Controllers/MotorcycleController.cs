@@ -7,6 +7,7 @@ using RentalMotorcycle.Data.Services;
 namespace RentalMotorcycle.Api.Controllers
 {
     [Route("motos")]
+    [Tags("Motos")]
     public class MotorcycleControllers(IMotorcycleService motorcycleService, IMotorcycleMapper motorcycleMapper) : Controller
     {
         [HttpGet("")]

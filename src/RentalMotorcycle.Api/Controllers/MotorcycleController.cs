@@ -28,5 +28,32 @@ namespace RentalMotorcycle.Api.Controllers
         {
             return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
         }
+
+        [HttpPost]
+        [EndpointSummary("Cadastrar uma moto nova")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        public async Task<ActionResult<MotorcycleViewModel>> PostMotorcycle(MotorcycleViewModel model)
+        {
+            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+        }
+
+        [HttpPut("{id}")]
+        [EndpointSummary("Modificar a placa de uma moto")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        public async Task<ActionResult<MotorcycleViewModel>> PutMotorcycle(MotorcycleViewModel model)
+        {
+            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+        }
+        
+        [HttpDelete("{id}")]
+        [EndpointSummary("Remover uma moto")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        public async Task<ActionResult<MotorcycleViewModel>> DeleteMotorcycle(string id)
+        {
+            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+        }
     }
 }

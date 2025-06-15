@@ -2,7 +2,7 @@
 using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
 
-namespace RentalMotorcycle.Data.Services;
+namespace RentalMotorcycle.Data.Services.Motorcycles;
 
 public class MotorcycleService(IMotorcycleRepository motorcycleRepository, IMotorcycleMapper motorcycleMapper) : IMotorcycleService
 {
@@ -10,5 +10,12 @@ public class MotorcycleService(IMotorcycleRepository motorcycleRepository, IMoto
     {
         var ret =  await motorcycleRepository.GetAllAsync();
         return motorcycleMapper.Map(ret);
+    }
+
+    public async Task<MotorcycleDTO> PostMotorcycle(MotorcycleDTO motorcycle)
+    {
+        motorcycleRepository.AddAsync(motorcycleMapper.Map(motorcycle));
+        await motorcycleRepository.SaveChangesAsync();
+        return motorcycle;
     }
 }

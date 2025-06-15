@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using RentalMotorcycle.Business.Entities.DeliveryMen;
 using RentalMotorcycle.Business.Entities.Motorcycles;
+using RentalMotorcycle.Business.Entities.Rental;
 using RentalMotorcycle.Data.Configuration;
 
 namespace RentalMotorcycle.Data
@@ -9,6 +11,8 @@ namespace RentalMotorcycle.Data
     public class DatabaseContext(DbContextOptions<DatabaseContext> options) : Microsoft.EntityFrameworkCore.DbContext(options)
     {
         public DbSet<Motorcycle> Motorcycle { get; set; }
+        public DbSet<Rent> Rent { get; set; }
+        public DbSet<DeliveryMan> DeliveryMan { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema(DbContextConfiguration.Schema);

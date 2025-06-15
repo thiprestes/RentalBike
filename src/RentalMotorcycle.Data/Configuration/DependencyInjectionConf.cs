@@ -5,6 +5,7 @@ using RentalMotorcycle.Data.Repositories.Motorcycles;
 using RentalMotorcycle.Data.Repositories.Rental;
 using RentalMotorcycle.Data.Services;
 using RentalMotorcycle.Data.Services.DeliveryMen.Mapper;
+using RentalMotorcycle.Data.Services.Motorcycles;
 using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
 using RentalMotorcycle.Data.Services.Rental.Mapper;
 

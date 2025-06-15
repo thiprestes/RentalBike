@@ -17,5 +17,23 @@ namespace RentalMotorcycle.Api.Controllers
         {
             return await Task.FromResult(new RentViewModel("", "", DateTime.Now, DateTime.Now, DateTime.Now, 0));
         }
+
+        [HttpPut("{id}/devolucao")]
+        [EndpointSummary("Informar data de devolução e calcular valor")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(RentViewModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        public async Task<ActionResult<RentViewModel>> PutRent(string id, RentViewModel model)
+        {
+            return await Task.FromResult(new RentViewModel("", "", DateTime.Now, DateTime.Now, DateTime.Now, 0));
+        }
+
+        [HttpPost]
+        [EndpointSummary("Alugar uma moto")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(RentViewModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        public async Task<ActionResult<RentViewModel>> PostRent(string id, RentViewModel model)
+        {
+            return await Task.FromResult(new RentViewModel("", "", DateTime.Now, DateTime.Now, DateTime.Now, 0));
+        }
     }
 }

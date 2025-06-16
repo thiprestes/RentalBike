@@ -12,9 +12,15 @@ public class MotorcycleService(IMotorcycleRepository motorcycleRepository, IMoto
         return motorcycleMapper.Map(ret);
     }
 
+    public async Task<MotorcycleDTO> GetById(string id)
+    {
+        var ret = await motorcycleRepository.GetByIdAsync(id);
+        return motorcycleMapper.Map(ret);
+    }
+    
     public async Task<MotorcycleDTO> PostMotorcycle(MotorcycleDTO motorcycle)
     {
-        motorcycleRepository.AddAsync(motorcycleMapper.Map(motorcycle));
+        await motorcycleRepository.AddAsync(motorcycleMapper.Map(motorcycle));
         await motorcycleRepository.SaveChangesAsync();
         return motorcycle;
     }

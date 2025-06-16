@@ -7,6 +7,6 @@ namespace RentalMotorcycle.Data.Services.DeliveryMen.Mapper;
 [Mapper]
 public partial class DeliveryManMapper : IDeliveryManMapper
 {
-    public partial DeliveryManDTO Map(DeliveryMan model);
-    public partial DeliveryMan Map(DeliveryManDTO model);
+    public partial DeliveryManDTO Map(DeliveryMan deliveryMan);
+    public partial DeliveryMan Map(DeliveryManDTO deliveryManDto);
 }

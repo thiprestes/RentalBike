@@ -36,7 +36,6 @@
 
     <ItemGroup>
       <Folder Include="ViewModels\DeliveryMen\Example\" />
-      <Folder Include="ViewModels\DeliveryMen\Response\" />
       <Folder Include="ViewModels\Rental\Example\" />
     </ItemGroup>
 

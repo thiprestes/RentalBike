@@ -5,6 +5,6 @@ public record DeliveryManViewModel(
     string Nome,
     string Cnpj,
     DateTime Data_nascimento,
-    string Cnh,
+    string Numero_cnh,
     string Tipo_cnh,
     string Imagem_cnh);

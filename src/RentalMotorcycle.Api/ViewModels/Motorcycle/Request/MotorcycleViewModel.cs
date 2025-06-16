@@ -1,7 +1,7 @@
 ﻿namespace RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
 
 public record MotorcycleViewModel(
-    string identificador,
-    int ano,
-    string modelo,
-    string placa);
+    string Identificador,
+    int Ano,
+    string Modelo,
+    string Placa);

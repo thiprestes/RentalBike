@@ -4,10 +4,10 @@ namespace RentalMotorcycle.Data.Repositories.Generic;
 
 public class Repository<T> (DatabaseContext context) : IRepository<T> where T : class
 {
-    protected readonly DatabaseContext _context;
+    protected readonly DatabaseContext _context = context;
     protected readonly DbSet<T> _dbSet = context.Set<T>();
     
-    public async Task<T> GetByIdAsync(Guid id)
+    public async Task<T> GetByIdAsync(string id)
     {
         return await _dbSet.FindAsync(id);
     }
@@ -19,7 +19,7 @@ public class Repository<T> (DatabaseContext context) : IRepository<T> where T : 
 
     public async Task AddAsync(T entity)
     {
-        await _dbSet.AddAsync(entity);    
+        await _dbSet.AddAsync(entity);
     }
 
     public void Update(T entity)

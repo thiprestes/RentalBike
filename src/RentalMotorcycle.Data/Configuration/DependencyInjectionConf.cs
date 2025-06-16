@@ -4,9 +4,11 @@ using RentalMotorcycle.Data.Repositories.DeliveryMen;
 using RentalMotorcycle.Data.Repositories.Motorcycles;
 using RentalMotorcycle.Data.Repositories.Rental;
 using RentalMotorcycle.Data.Services;
+using RentalMotorcycle.Data.Services.DeliveryMen;
 using RentalMotorcycle.Data.Services.DeliveryMen.Mapper;
 using RentalMotorcycle.Data.Services.Motorcycles;
 using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
+using RentalMotorcycle.Data.Services.Rental;
 using RentalMotorcycle.Data.Services.Rental.Mapper;
 
 namespace RentalMotorcycle.Data.Configuration;
@@ -19,9 +21,11 @@ public static class DependencyInjectionConf
         services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
         services.AddScoped<IMotorcycleMapper, MotorcycleMapper>();
         
+        services.AddScoped<IRentService, RentService>();
         services.AddScoped<IRentRepository, RentRepository>();
         services.AddScoped<IRentMapper, RentMapper>();
         
+        services.AddScoped<IDeliveryManService, DeliveryManService>();
         services.AddScoped<IDeliveryManRepository, DeliveryManRepository>();
         services.AddScoped<IDeliveryManMapper, DeliveryManMapper>();
         

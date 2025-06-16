@@ -7,6 +7,6 @@ namespace RentalMotorcycle.Data.Services.Rental.Mapper;
 [Mapper]
 public partial class RentMapper : IRentMapper
 {
-    public partial RentDTO Map(Rent model);
-    public partial Rent Map(RentDTO model);
+    public partial RentDTO Map(Rent rent);
+    public partial Rent Map(RentDTO rentDTO);
 }

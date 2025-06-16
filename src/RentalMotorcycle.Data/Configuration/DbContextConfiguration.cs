@@ -11,7 +11,7 @@ public static class DbContextConfiguration
 
     public const string MigrationsHistoryTable = "__EFMigrationsHistory";
 
-    public static IServiceCollection AddDbContextStocks(this IServiceCollection services,
+    public static IServiceCollection AddDbContextRental(this IServiceCollection services,
         IConfiguration configuration)
     {
         services.AddDbContextFactory<DatabaseContext>(w =>

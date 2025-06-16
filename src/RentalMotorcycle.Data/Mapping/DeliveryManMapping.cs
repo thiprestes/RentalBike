@@ -10,16 +10,11 @@ public class DeliveryManMapping : IEntityTypeConfiguration<DeliveryMan>
     {
         builder.ToTable("DeliveryMan");
         
-        builder.HasKey(i => i.Id);
-        builder.Property(i => i.Id)
-            .IsRequired(true)
-            .HasColumnType("uuid")
-            .HasColumnName("id");
-        
+        builder.HasKey(i => i.Identificador);
         builder.Property(i => i.Identificador)
-            .IsRequired()
+            .IsRequired(true)
             .HasColumnType("varchar")
-            .HasColumnName("identicador");
+            .HasColumnName("id");
         
         builder.Property(i => i.Nome)
             .IsRequired()
@@ -36,7 +31,7 @@ public class DeliveryManMapping : IEntityTypeConfiguration<DeliveryMan>
             .HasColumnType("date")
             .HasColumnName("data_nascimento");
         
-        builder.Property(i => i.Cnh)
+        builder.Property(i => i.Numero_cnh)
             .IsRequired()
             .HasColumnType("varchar")
             .HasColumnName("cnh");

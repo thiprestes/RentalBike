@@ -19,8 +19,7 @@ namespace RentalMotorcycle.Data.Migrations
                 schema: "RentalMotorcycle",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uuid", nullable: false),
-                    identicador = table.Column<string>(type: "varchar", nullable: false),
+                    id = table.Column<string>(type: "varchar", nullable: false),
                     nome = table.Column<string>(type: "varchar", nullable: false),
                     cnpj = table.Column<string>(type: "varchar", nullable: false),
                     data_nascimento = table.Column<DateTime>(type: "date", nullable: false),
@@ -38,8 +37,7 @@ namespace RentalMotorcycle.Data.Migrations
                 schema: "RentalMotorcycle",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uuid", nullable: false),
-                    identificador = table.Column<string>(type: "varchar", nullable: false),
+                    id = table.Column<string>(type: "varchar", nullable: false),
                     ano = table.Column<int>(type: "integer", nullable: false),
                     modelo = table.Column<string>(type: "varchar", nullable: false),
                     placa = table.Column<string>(type: "varchar", nullable: false)
@@ -54,8 +52,7 @@ namespace RentalMotorcycle.Data.Migrations
                 schema: "RentalMotorcycle",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Identificador = table.Column<string>(type: "text", nullable: false),
+                    id = table.Column<string>(type: "varchar", nullable: false),
                     entregador_id = table.Column<string>(type: "varchar", nullable: false),
                     moto_id = table.Column<string>(type: "varchar", nullable: false),
                     data_inicio = table.Column<DateTime>(type: "date", nullable: false),

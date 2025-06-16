@@ -2,7 +2,8 @@
 using RentalMotorcycle.Api.Mapper.Motorcycle;
 using RentalMotorcycle.Api.ViewModels;
 using RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
-using RentalMotorcycle.Data.Services;
+using RentalMotorcycle.Api.ViewModels.Motorcycle.Response;
+using RentalMotorcycle.Data.Services.Motorcycles;
 
 namespace RentalMotorcycle.Api.Controllers
 {
@@ -22,27 +23,33 @@ namespace RentalMotorcycle.Api.Controllers
         
         [HttpGet("{id}")]
         [EndpointSummary("Consultar motos existentes")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<MotorcycleViewModel> GetId(string id)
+        public async Task<MotorcycleResponse> GetId(string id)
         {
-            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+            var ret = await motorcycleService.GetById(id);
+            return await Task.FromResult(new MotorcycleResponse(
+                ret.Identificador, 
+                ret.Ano, 
+                ret.Modelo, 
+                ret.Placa));
         }
 
         [HttpPost]
         [EndpointSummary("Cadastrar uma moto nova")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<ActionResult<MotorcycleViewModel>> PostMotorcycle(MotorcycleViewModel model)
+        public async Task<IActionResult> Post([FromBody] MotorcycleViewModel motorcycleViewModel)
         {
-            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+            await motorcycleService.PostMotorcycle(motorcycleMapper.Map(motorcycleViewModel));
+            return Ok();
         }
 
         [HttpPut("{id}")]
         [EndpointSummary("Modificar a placa de uma moto")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<ActionResult<MotorcycleViewModel>> PutMotorcycle(MotorcycleViewModel model)
+        public async Task<ActionResult<MotorcycleViewModel>> PutMotorcycle([FromBody] MotorcycleViewModel model)
         {
             return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
         }

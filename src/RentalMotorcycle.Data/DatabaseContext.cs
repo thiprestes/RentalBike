@@ -13,6 +13,7 @@ namespace RentalMotorcycle.Data
         public DbSet<Motorcycle> Motorcycle { get; set; }
         public DbSet<Rent> Rent { get; set; }
         public DbSet<DeliveryMan> DeliveryMan { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema(DbContextConfiguration.Schema);

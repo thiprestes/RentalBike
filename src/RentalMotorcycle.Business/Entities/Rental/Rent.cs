@@ -5,7 +5,6 @@ namespace RentalMotorcycle.Business.Entities.Rental;
 
 public class Rent
 {
-    public Guid Id  { get; set; }
     public string Identificador { get; set; }
     public string Entregador_id { get; set; }
     public string Moto_id { get; set; }

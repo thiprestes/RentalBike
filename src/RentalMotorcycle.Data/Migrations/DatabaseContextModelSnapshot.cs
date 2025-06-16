@@ -25,9 +25,8 @@ namespace RentalMotorcycle.Data.Migrations
 
             modelBuilder.Entity("RentalMotorcycle.Business.Entities.DeliveryMen.DeliveryMan", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar")
                         .HasColumnName("id");
 
                     b.Property<string>("Cnh")
@@ -43,11 +42,6 @@ namespace RentalMotorcycle.Data.Migrations
                     b.Property<DateTime>("Data_nascimento")
                         .HasColumnType("date")
                         .HasColumnName("data_nascimento");
-
-                    b.Property<string>("Identificador")
-                        .IsRequired()
-                        .HasColumnType("varchar")
-                        .HasColumnName("identicador");
 
                     b.Property<string>("Imagem_cnh")
                         .IsRequired()
@@ -71,19 +65,13 @@ namespace RentalMotorcycle.Data.Migrations
 
             modelBuilder.Entity("RentalMotorcycle.Business.Entities.Motorcycles.Motorcycle", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar")
                         .HasColumnName("id");
 
                     b.Property<int>("Ano")
                         .HasColumnType("integer")
                         .HasColumnName("ano");
-
-                    b.Property<string>("Identificador")
-                        .IsRequired()
-                        .HasColumnType("varchar")
-                        .HasColumnName("identificador");
 
                     b.Property<string>("Modelo")
                         .IsRequired()
@@ -102,9 +90,8 @@ namespace RentalMotorcycle.Data.Migrations
 
             modelBuilder.Entity("RentalMotorcycle.Business.Entities.Rental.Rent", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar")
                         .HasColumnName("id");
 
                     b.Property<DateTime>("Data_devolucao")
@@ -127,10 +114,6 @@ namespace RentalMotorcycle.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar")
                         .HasColumnName("entregador_id");
-
-                    b.Property<string>("Identificador")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("Moto_id")
                         .IsRequired()

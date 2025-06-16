@@ -11,16 +11,11 @@ public class MotorcycleMapping : IEntityTypeConfiguration<Motorcycle>
     {
         builder.ToTable("motorcycle");
         
-        builder.HasKey(i => i.Id);
-        builder.Property(i => i.Id)
-            .IsRequired()
-            .HasColumnType("uuid")
-            .HasColumnName("id");
-        
+        builder.HasKey(i => i.Identificador);
         builder.Property(i => i.Identificador)
             .IsRequired()
             .HasColumnType("varchar")
-            .HasColumnName("identificador");
+            .HasColumnName("id");
         
         builder.Property(i => i.Ano)
             .IsRequired()

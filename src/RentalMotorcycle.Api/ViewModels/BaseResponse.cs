@@ -3,5 +3,5 @@
 public class BaseResponse
 {
     public required string Mensagem { get; set; }
-    public required Guid Id { get; set; }
+    public required int Id { get; set; }
 }

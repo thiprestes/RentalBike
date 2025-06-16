@@ -8,10 +8,10 @@ public class ListMotorcycleViewModelExample : IExamplesProvider<List<MotorcycleV
     public List<MotorcycleViewModel> GetExamples()
     {
         var motorcycle = new MotorcycleViewModel(
-            identificador: "moto123",
-            ano: 2025,
-            modelo: "BMW S 1000 RR",
-            placa: "BRA-4E21");
+            Identificador: "moto123",
+            Ano: 2025,
+            Modelo: "BMW S 1000 RR",
+            Placa: "BRA-4E21");
         var motorcycles = new List<MotorcycleViewModel>();
         motorcycles.Add(motorcycle);
         return motorcycles;

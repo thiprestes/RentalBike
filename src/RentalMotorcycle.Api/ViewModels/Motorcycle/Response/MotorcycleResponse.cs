@@ -1,8 +1,7 @@
 ﻿namespace RentalMotorcycle.Api.ViewModels.Motorcycle.Response;
 
 public record MotorcycleResponse(
-    Guid Id,
-    string identificador,
+    string id,
     int ano,
     string modelo,
     string placa) ;

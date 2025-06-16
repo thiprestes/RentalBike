@@ -10,10 +10,10 @@ public class RentMapping : IEntityTypeConfiguration<Rent>
    {
       builder.ToTable("rental");
 
-      builder.HasKey(i => i.Id);
-      builder.Property(i => i.Id)
+      builder.HasKey(i => i.Identificador);
+      builder.Property(i => i.Identificador)
          .IsRequired()
-         .HasColumnType("uuid")
+         .HasColumnType("varchar")
          .HasColumnName("id");
       
       builder.Property(i => i.Entregador_id)

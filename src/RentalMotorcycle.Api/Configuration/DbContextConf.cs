@@ -11,7 +11,7 @@ public static class DbContextConf
     public static IServiceCollection AddDbContextConf(this IServiceCollection services, IConfiguration configuration)
     {
         CreatePostgresSchemaIfNotExists(configuration, DbContextConfiguration.Schema);
-        services.AddDbContextStocks(configuration);
+        services.AddDbContextRental(configuration);
         return services;
     }
     

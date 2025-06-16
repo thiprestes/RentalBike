@@ -5,6 +5,6 @@ namespace RentalMotorcycle.Data.Services.Rental.Mapper;
 
 public interface IRentMapper
 {
-    RentDTO Map(Rent model);
-    Rent Map(RentDTO model);
+    RentDTO Map(Rent rent);
+    Rent Map(RentDTO rentDto);
 }

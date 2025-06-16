@@ -47,20 +47,46 @@ namespace RentalMotorcycle.Api.Controllers
 
         [HttpPut("{id}")]
         [EndpointSummary("Modificar a placa de uma moto")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcyclePlateViewModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<ActionResult<MotorcycleViewModel>> PutMotorcycle([FromBody] MotorcycleViewModel model)
+        public async Task<IActionResult> PutPlate(string id, [FromBody] MotorcyclePlateViewModel motorcyclePlateViewModel)
         {
-            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+            var success = await motorcycleService.PutMotorcyclePlate(id, motorcyclePlateViewModel.Placa);
+            
+            if (success)
+            {
+                return Ok(new BaseResponse
+                {
+                    Mensagem = "PLaca Alterada com sucesso",
+                }) ;
+            }
+            
+            return Ok(new BaseResponse
+            {
+                Mensagem = "Dados inválidos"
+            });
         }
         
         [HttpDelete("{id}")]
         [EndpointSummary("Remover uma moto")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<ActionResult<MotorcycleViewModel>> DeleteMotorcycle(string id)
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        public async Task<IActionResult> Delete(string id)
         {
-            return await Task.FromResult(new MotorcycleViewModel("string", 0, "", ""));
+            var success = await motorcycleService.DeleteMotorcycle(id);
+            
+            if (success)
+            {
+                return Ok(new BaseResponse
+                {
+                    Mensagem = "deu certo",
+                }) ;
+            }
+
+            return BadRequest(new BaseResponse
+            {
+                Mensagem = "Dados invalidos"
+            });
         }
     }
 }

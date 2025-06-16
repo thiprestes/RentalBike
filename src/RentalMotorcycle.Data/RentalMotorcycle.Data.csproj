@@ -31,4 +31,10 @@
       <ProjectReference Include="..\RentalMotorcycle.Business\RentalMotorcycle.Business.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
+        <HintPath>C:\Users\thipr\.dotnet\shared\Microsoft.AspNetCore.App\8.0.16\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

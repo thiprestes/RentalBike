@@ -1,4 +1,5 @@
-﻿using RentalMotorcycle.Data.Repositories.Motorcycles;
+﻿using Microsoft.AspNetCore.Mvc;
+using RentalMotorcycle.Data.Repositories.Motorcycles;
 using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
 
@@ -23,5 +24,29 @@ public class MotorcycleService(IMotorcycleRepository motorcycleRepository, IMoto
         await motorcycleRepository.AddAsync(motorcycleMapper.Map(motorcycle));
         await motorcycleRepository.SaveChangesAsync();
         return motorcycle;
+    }
+
+    public async Task<bool> PutMotorcyclePlate(string id, string plate)
+    {
+        var ret = await motorcycleRepository.GetByIdAsync(id);
+        if (ret == null)
+        {
+            return false;
+        }
+        ret.Placa = plate;
+        await motorcycleRepository.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> DeleteMotorcycle(string id)
+    {
+        var ret = await motorcycleRepository.GetByIdAsync(id);
+        if (ret == null)
+        {
+            return false;
+        }
+        motorcycleRepository.Delete(ret);
+        await motorcycleRepository.SaveChangesAsync();
+        return true;
     }
 }

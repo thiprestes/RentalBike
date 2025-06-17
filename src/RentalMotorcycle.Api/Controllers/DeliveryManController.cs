@@ -17,36 +17,80 @@ namespace RentalMotorcycle.Api.Controllers
         [EndpointSummary("Consulta entregador por id")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DeliveryManViewModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<DeliveryManViewModel> GetId(string id)
+        public async Task<IActionResult> GetId(string id)
         {
-            var ret = await deliveryManService.GetById(id);
-            return await Task.FromResult(new DeliveryManViewModel(
-                ret.Identificador,
-                ret.Nome,
-                ret.Cnpj,
-                ret.Data_nascimento,
-                ret.Numero_cnh,
-                ret.Tipo_cnh, 
-                ret.Imagem_cnh));
+            try
+            {
+                var ret = await deliveryManService.GetById(id);
+                if (ret == null)
+                {
+                    return NotFound(new  BaseResponse
+                    {
+                        Mensagem = "Entregador não encontrado"
+                    });
+                }
+                return Ok(deliveryManMapper.Map(ret));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new BaseResponse
+                {
+                    Mensagem = "Request mal formada"
+                });
+            }
+            
         }
         
         [HttpPost]
         [EndpointSummary("Cadastrar entregador")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DeliveryManViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<ActionResult<DeliveryManViewModel>> PostEntregador([FromBody] DeliveryManViewModel model)
+        public async Task<IActionResult> PostEntregador([FromBody] DeliveryManViewModel model)
         {
-            await deliveryManService.PostDeliveryMan(deliveryManMapper.Map(model));
-            return CreatedAtAction(nameof(GetId), new { id = model.Identificador }, model);
+            var success = await deliveryManService.PostDeliveryMan(deliveryManMapper.Map(model));
+            if (!success)
+            {
+                return BadRequest(new  BaseResponse
+                {
+                    Mensagem = "Dados inválidos"
+                });
+            }
+            return Ok(new BaseResponse
+            {
+                Mensagem = "Cadastrado com sucesso!"
+            });
         }
         
         [HttpPut("{id}/cnh")]
         [EndpointSummary("Enviar foto da CNH")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DeliveryManViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<DeliveryManViewModel> PostEntregadorCnh(string id)
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BaseResponse))]
+        public async Task<IActionResult> PutEntregadorCnh(string id, [FromBody] DeliveryManCnhViewModel deliveryManCnhViewModel)
         {
-            return await Task.FromResult(new DeliveryManViewModel("","","",DateTime.Now, "", "", ""));
+            try
+            {
+                var success = await deliveryManService.PutDeliveryManCnh(id, deliveryManCnhViewModel.Imagem_cnh);
+                if (success)
+                {
+                    return Ok(new BaseResponse
+                    {
+                        Mensagem = "Foto da Cnh atualizada com sucesso!",
+                    }) ;
+                }
+
+                return NotFound(new BaseResponse
+                {
+                    Mensagem = "Entregador não encontrado"
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new BaseResponse
+                {
+                    Mensagem = "Dados inválidos"
+                });  
+            }  
         }
     }    
 }

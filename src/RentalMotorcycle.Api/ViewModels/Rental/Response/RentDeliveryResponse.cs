@@ -2,5 +2,5 @@
 
 public class RentDeliveryResponse : BaseResponse
 {
-    public Decimal Valor_locacao { get; set; } 
+    public Decimal ValorLocacao { get; set; } 
 }

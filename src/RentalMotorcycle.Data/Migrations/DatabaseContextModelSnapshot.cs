@@ -25,14 +25,9 @@ namespace RentalMotorcycle.Data.Migrations
 
             modelBuilder.Entity("RentalMotorcycle.Business.Entities.DeliveryMen.DeliveryMan", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Identificador")
                         .HasColumnType("varchar")
                         .HasColumnName("id");
-
-                    b.Property<string>("Cnh")
-                        .IsRequired()
-                        .HasColumnType("varchar")
-                        .HasColumnName("cnh");
 
                     b.Property<string>("Cnpj")
                         .IsRequired()
@@ -53,19 +48,30 @@ namespace RentalMotorcycle.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("nome");
 
+                    b.Property<string>("Numero_cnh")
+                        .IsRequired()
+                        .HasColumnType("varchar")
+                        .HasColumnName("cnh");
+
                     b.Property<string>("Tipo_cnh")
                         .IsRequired()
                         .HasColumnType("varchar")
                         .HasColumnName("tipo_cnh");
 
-                    b.HasKey("Id");
+                    b.HasKey("Identificador");
+
+                    b.HasIndex("Cnpj")
+                        .IsUnique();
+
+                    b.HasIndex("Numero_cnh")
+                        .IsUnique();
 
                     b.ToTable("DeliveryMan", "RentalMotorcycle");
                 });
 
             modelBuilder.Entity("RentalMotorcycle.Business.Entities.Motorcycles.Motorcycle", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Identificador")
                         .HasColumnType("varchar")
                         .HasColumnName("id");
 
@@ -83,14 +89,17 @@ namespace RentalMotorcycle.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("placa");
 
-                    b.HasKey("Id");
+                    b.HasKey("Identificador");
+
+                    b.HasIndex("Placa")
+                        .IsUnique();
 
                     b.ToTable("motorcycle", "RentalMotorcycle");
                 });
 
             modelBuilder.Entity("RentalMotorcycle.Business.Entities.Rental.Rent", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Identificador")
                         .HasColumnType("varchar")
                         .HasColumnName("id");
 
@@ -124,7 +133,7 @@ namespace RentalMotorcycle.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("plano");
 
-                    b.HasKey("Id");
+                    b.HasKey("Identificador");
 
                     b.ToTable("rental", "RentalMotorcycle");
                 });

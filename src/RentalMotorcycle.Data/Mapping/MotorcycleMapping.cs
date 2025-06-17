@@ -26,7 +26,9 @@ public class MotorcycleMapping : IEntityTypeConfiguration<Motorcycle>
             .IsRequired()
             .HasColumnType("varchar")
             .HasColumnName("modelo");
-        
+
+        builder.HasIndex(i => i.Placa)
+            .IsUnique();
         builder.Property(i => i.Placa)
             .IsRequired()
             .HasColumnType("varchar")

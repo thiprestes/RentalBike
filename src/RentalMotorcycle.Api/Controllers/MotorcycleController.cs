@@ -4,6 +4,7 @@ using RentalMotorcycle.Api.ViewModels;
 using RentalMotorcycle.Api.ViewModels.Motorcycle.Request;
 using RentalMotorcycle.Api.ViewModels.Motorcycle.Response;
 using RentalMotorcycle.Data.Services.Motorcycles;
+using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 
 namespace RentalMotorcycle.Api.Controllers
 {
@@ -25,52 +26,85 @@ namespace RentalMotorcycle.Api.Controllers
         [EndpointSummary("Consultar motos existentes")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
-        public async Task<MotorcycleResponse> GetId(string id)
+        public async Task<IActionResult> GetId(string id)
         {
-            var ret = await motorcycleService.GetById(id);
-            return await Task.FromResult(new MotorcycleResponse(
-                ret.Identificador, 
-                ret.Ano, 
-                ret.Modelo, 
-                ret.Placa));
+            try
+            {
+                var ret = await motorcycleService.GetById(id);
+                if (ret == null)
+                {
+                    return NotFound(new  BaseResponse
+                    {
+                        Mensagem = "Moto não encontrada"
+                    });
+                }
+                return Ok(motorcycleMapper.Map(ret));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new BaseResponse
+                {
+                    Mensagem = "Request mal formada"
+                });
+            }
         }
 
         [HttpPost]
         [EndpointSummary("Cadastrar uma moto nova")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
         public async Task<IActionResult> Post([FromBody] MotorcycleViewModel motorcycleViewModel)
         {
-            await motorcycleService.PostMotorcycle(motorcycleMapper.Map(motorcycleViewModel));
-            return Ok();
+            var success = await motorcycleService.PostMotorcycle(motorcycleMapper.Map(motorcycleViewModel));
+            if (!success)
+            {
+                return BadRequest(new BaseResponse
+                {
+                    Mensagem = "Dados Inválidos"
+                });
+            }
+            return Ok(new BaseResponse
+            {
+                Mensagem = "Moto adicionada com sucesso"
+            });
         }
 
         [HttpPut("{id}")]
         [EndpointSummary("Modificar a placa de uma moto")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcyclePlateViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(BaseResponse))]
         public async Task<IActionResult> PutPlate(string id, [FromBody] MotorcyclePlateViewModel motorcyclePlateViewModel)
         {
-            var success = await motorcycleService.PutMotorcyclePlate(id, motorcyclePlateViewModel.Placa);
-            
-            if (success)
+            try
             {
-                return Ok(new BaseResponse
+                var success = await motorcycleService.PutMotorcyclePlate(id, motorcyclePlateViewModel.Placa);
+                if (success)
                 {
-                    Mensagem = "PLaca Alterada com sucesso",
-                }) ;
+                    return Ok(new BaseResponse
+                    {
+                        Mensagem = "Placa Alterada com sucesso",
+                    }) ;
+                }
+
+                return NotFound(new BaseResponse
+                {
+                    Mensagem = "Moto não encontrada"
+                });
             }
-            
-            return Ok(new BaseResponse
+            catch (Exception e)
             {
-                Mensagem = "Dados inválidos"
-            });
+                return BadRequest(new BaseResponse
+                {
+                    Mensagem = "Dados inválidos"
+                });  
+            }  
         }
         
         [HttpDelete("{id}")]
         [EndpointSummary("Remover uma moto")]
-        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleViewModel))]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
         public async Task<IActionResult> Delete(string id)
         {
             var success = await motorcycleService.DeleteMotorcycle(id);
@@ -79,7 +113,7 @@ namespace RentalMotorcycle.Api.Controllers
             {
                 return Ok(new BaseResponse
                 {
-                    Mensagem = "deu certo",
+                    Mensagem = "Moto deletada com sucesso",
                 }) ;
             }
 

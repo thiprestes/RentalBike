@@ -65,6 +65,27 @@ namespace RentalMotorcycle.Data.Migrations
                 {
                     table.PrimaryKey("PK_rental", x => x.id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DeliveryMan_cnh",
+                schema: "RentalMotorcycle",
+                table: "DeliveryMan",
+                column: "cnh",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DeliveryMan_cnpj",
+                schema: "RentalMotorcycle",
+                table: "DeliveryMan",
+                column: "cnpj",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_motorcycle_placa",
+                schema: "RentalMotorcycle",
+                table: "motorcycle",
+                column: "placa",
+                unique: true);
         }
 
         /// <inheritdoc />

@@ -51,17 +51,12 @@ Seu objetivo é criar uma aplicação para gerenciar aluguel de motos e entregad
     - Quando a data informada for superior a data prevista do término, será cobrado um valor adicional de R$50,00 por diária adicional. 
 
 ## Diferenciais 🚀
-- Testes unitários
-- Testes de integração
 - EntityFramework e/ou Dapper
-- Docker e Docker Compose
 - Design Patterns
 - Documentação
 - Tratamento de erros
 - Arquitetura e modelagem de dados
-- Código escrito em língua inglesa
 - Código limpo e organizado
-- Logs bem estruturados
 - Seguir convenções utilizadas pela comunidade
   
 

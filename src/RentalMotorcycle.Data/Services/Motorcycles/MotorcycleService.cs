@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using RentalMotorcycle.Business.Entities.Motorcycles;
 using RentalMotorcycle.Data.Repositories.Motorcycles;
 using RentalMotorcycle.Data.Services.Motorcycles.DTO;
 using RentalMotorcycle.Data.Services.Motorcycles.Mapper;
@@ -9,32 +9,50 @@ public class MotorcycleService(IMotorcycleRepository motorcycleRepository, IMoto
 {
     public async Task<List<MotorcycleDTO>> ListAsync()
     {
-        var ret =  await motorcycleRepository.GetAllAsync();
+        var ret = await motorcycleRepository.GetAllAsync();
         return motorcycleMapper.Map(ret);
     }
 
     public async Task<MotorcycleDTO> GetById(string id)
     {
         var ret = await motorcycleRepository.GetByIdAsync(id);
+        if (ret == null)
+        {
+            return null;
+        }
         return motorcycleMapper.Map(ret);
     }
     
-    public async Task<MotorcycleDTO> PostMotorcycle(MotorcycleDTO motorcycle)
+    public async Task<bool> PostMotorcycle(MotorcycleDTO motorcycle)
     {
-        await motorcycleRepository.AddAsync(motorcycleMapper.Map(motorcycle));
-        await motorcycleRepository.SaveChangesAsync();
-        return motorcycle;
+        try
+        {
+            await motorcycleRepository.AddAsync(motorcycleMapper.Map(motorcycle));
+            await motorcycleRepository.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        return true;
     }
 
     public async Task<bool> PutMotorcyclePlate(string id, string plate)
     {
-        var ret = await motorcycleRepository.GetByIdAsync(id);
-        if (ret == null)
+        try
+        {
+           var ret = await motorcycleRepository.GetByIdAsync(id);
+           if (ret == null)
+           {
+               return false;
+           }
+           ret.Placa = plate;
+           await motorcycleRepository.SaveChangesAsync(); 
+        }
+        catch (Exception)
         {
             return false;
         }
-        ret.Placa = plate;
-        await motorcycleRepository.SaveChangesAsync();
         return true;
     }
 

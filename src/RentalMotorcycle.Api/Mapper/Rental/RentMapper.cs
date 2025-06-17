@@ -1,4 +1,5 @@
 ﻿using RentalMotorcycle.Api.ViewModels.Rental.Request;
+using RentalMotorcycle.Business.Entities.Rental;
 using RentalMotorcycle.Data.Services.Rental.DTO;
 using Riok.Mapperly.Abstractions;
 

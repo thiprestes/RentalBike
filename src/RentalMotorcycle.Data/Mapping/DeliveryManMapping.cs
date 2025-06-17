@@ -20,7 +20,9 @@ public class DeliveryManMapping : IEntityTypeConfiguration<DeliveryMan>
             .IsRequired()
             .HasColumnType("varchar")
             .HasColumnName("nome");
-        
+
+        builder.HasIndex(i => i.Cnpj)
+            .IsUnique();
         builder.Property(i => i.Cnpj)
             .IsRequired()
             .HasColumnType("varchar")
@@ -31,6 +33,8 @@ public class DeliveryManMapping : IEntityTypeConfiguration<DeliveryMan>
             .HasColumnType("date")
             .HasColumnName("data_nascimento");
         
+        builder.HasIndex(i => i.Numero_cnh)
+            .IsUnique();
         builder.Property(i => i.Numero_cnh)
             .IsRequired()
             .HasColumnType("varchar")

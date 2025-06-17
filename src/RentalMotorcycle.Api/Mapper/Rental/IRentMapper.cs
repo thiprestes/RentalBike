@@ -7,4 +7,5 @@ public interface IRentMapper
 {
     RentDTO Map(RentViewModel model);
     RentViewModel Map(RentDTO model);
+    
 }

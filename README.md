@@ -58,5 +58,10 @@ Seu objetivo é criar uma aplicação para gerenciar aluguel de motos e entregad
 - Arquitetura e modelagem de dados
 - Código limpo e organizado
 - Seguir convenções utilizadas pela comunidade
-  
 
+## Configuração de Projeto
+Acesse o arquivo AppSettings.
+Informe o ip, porta e base de dados a serem utilizados.
+
+## Postmann
+https://web.postman.co/workspace/a1e93cb3-d8f2-4d47-ac1f-177d43b86266
